@@ -48,3 +48,5 @@ The Sample Utterances will be:
 ```
 RollDiceIntent {HowMany} d {DiceSides}
 ```
+
+If you don't own an Amazon Echo or similar Amazon Alexa device, you can try https://echosim.io/ as a browser-based version.
