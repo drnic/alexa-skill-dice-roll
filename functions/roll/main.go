@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"math/rand"
+	"regexp"
 	"strconv"
 	"time"
 
@@ -40,8 +41,12 @@ func main() {
 				if val, ok := intent.Slots["DiceSides"]; ok {
 					diceSides, err = strconv.Atoi(val.Value)
 					if err != nil {
-						diceSides = 6
 						log.Println("RollDiceIntent: parsing DiceSides: ", err)
+						// perhaps 4d6 was heard as "46" (forty-six)
+						re := regexp.MustCompile(`(\d*)(\d)`)
+						parts := re.FindStringSubmatch(fmt.Sprintf("%d", howManyDice))
+						howManyDice, _ = strconv.Atoi(parts[1])
+						diceSides, _ = strconv.Atoi(parts[2])
 					}
 				}
 
