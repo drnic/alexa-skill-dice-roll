@@ -1,0 +1,8 @@
+{
+  "name": "dice_roll",
+  "description": "Dice Roll",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::868593321044:role/dice_roll_lambda_function",
+  "environment": {}
+}
